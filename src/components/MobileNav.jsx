@@ -35,7 +35,7 @@ function MobileNav({ isMenuOpen, setIsMenuOpen }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
-                  className="text-4xl hover:text-gray-300 transition-colors"
+                  className="text-2xl hover:text-gray-300 transition-colors"
                 >
                   {item}
                 </motion.a>

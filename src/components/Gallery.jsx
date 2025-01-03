@@ -4,6 +4,7 @@ import { ArrowLeft, Loader } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import Header2 from "./Header2";
 import MobileNav from "./MobileNav";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Gallery = () => {
   const location = useLocation();
@@ -66,7 +67,7 @@ const Gallery = () => {
     setColumns(newColumns);
   };
 
-  // Handle intersection observer for infinite scroll
+  // Handle intersection observer
   const handleObserver = useCallback(
     (entries) => {
       const target = entries[0];
@@ -120,35 +121,37 @@ const Gallery = () => {
 
   const ImageCard = ({ image }) => {
     return (
-      <div
-        className="relative group cursor-pointer overflow-hidden bg-gray-900 mb-4"
-        onClick={() => setSelectedImage(image)}
-      >
-        <div className="relative">
-          <img
-            src={image.src}
-            alt={image.alt}
-            className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-            style={{
-              aspectRatio: `${image.width} / ${image.height}`,
-            }}
-          />
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300">
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-              <p className="text-sm font-light">{image.alt}</p>
+      <AnimatePresence>
+        <motion.div
+          className="relative group cursor-pointer overflow-hidden rounded-xl bg-gray-900 mb-2 md:mb-4"
+          onClick={() => setSelectedImage(image)}
+        >
+          <div className="relative">
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              style={{
+                aspectRatio: `${image.width} / ${image.height}`,
+              }}
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-sm font-light">{image.alt}</p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
     );
   };
 
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Gallery Grid */}
-      <div className="container mx-auto px-4 pt-32 pb-12">
-        <div className="flex gap-4">
+      <div className="container mx-auto px-4 pt-20 md:pt-32 pb-12">
+        <div className="flex gap-2 md:gap-4">
           {columns.map((column, columnIndex) => (
             <div key={columnIndex} className="flex-1">
               {column.map((image, index) => (
@@ -163,7 +166,7 @@ const Gallery = () => {
           {isLoading && (
             <div className="flex items-center space-x-2">
               <Loader className="animate-spin" size={24} />
-              <span className="text-gray-600">
+              <span className="text-sm text-gray-600">
                 {imageData.length <= 0
                   ? "Loading images"
                   : "Loading more images..."}

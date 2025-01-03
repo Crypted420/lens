@@ -9,7 +9,7 @@ const Header = ({ setIsMenuOpen, isMenuOpen }) => {
 
       <div className="relative flex justify-between items-center p-6 md:p-10">
         <div className="flex items-center space-x-12">
-          <h1 className="text-2xl text-white font-light tracking-wider">
+          <h1 className="text-lg md:text-2xl text-white font-light tracking-wider">
             LENS·CRAFT
           </h1>
 

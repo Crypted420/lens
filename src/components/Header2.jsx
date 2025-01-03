@@ -4,12 +4,9 @@ import { Instagram, Twitter, Mail, Github } from "lucide-react";
 const Header2 = ({ setIsMenuOpen, isMenuOpen }) => {
   return (
     <header className="fixed bg-white top-0 left-0 w-full z-50">
-      {/* Dark gradient overlay for header */}
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/70 to-transparent"></div>
-
-      <div className="relative flex justify-between items-center p-10">
+      <div className="relative flex justify-between items-center p-4 md:p-10">
         <div className="flex items-center space-x-12">
-          <h1 className="text-2xl text-black font-light tracking-wider">
+          <h1 className="text-lg md:text-2xl text-black font-light tracking-wider">
             LENS·CRAFT
           </h1>
 

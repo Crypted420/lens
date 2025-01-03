@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  X,
-  ArrowRight,
-  ArrowLeft,
-  Instagram,
-  Twitter,
-  Mail,
-} from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import Header from "../components/Header";
 import { Link, useNavigate } from "react-router-dom";
 import MobileNav from "../components/MobileNav";
@@ -185,7 +178,7 @@ const Home = () => {
               className="absolute bottom-20 left-6 md:left-10 max-w-xl"
             >
               <Link to="/gallery">
-                <h2 className="text-6xl font-light mb-4 text-white">
+                <h2 className="text-6xl font-light md:mb-4 text-white">
                   {projects[currentImageIndex].title}
                 </h2>
               </Link>
