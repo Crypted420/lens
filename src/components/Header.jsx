@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Menu, X } from "lucide-react";
 import { Instagram, Twitter, Mail, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = ({ setIsMenuOpen, isMenuOpen }) => {
   return (
@@ -10,18 +12,18 @@ const Header = ({ setIsMenuOpen, isMenuOpen }) => {
       <div className="relative flex justify-between items-center p-6 md:p-10">
         <div className="flex items-center space-x-12">
           <h1 className="text-lg md:text-2xl text-white font-light tracking-wider">
-            LENS·CRAFT
+            DREY·MIDE
           </h1>
 
           <nav className="hidden md:flex items-center space-x-8">
-            {["Work", "About", "Services", "Contact"].map((item) => (
-              <a
+            {["Mining", "Indutrial", "Potraits", "Contact"].map((item) => (
+              <Link
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                to={`/gallery?query=${item.toLowerCase()}`}
                 className="text-white/90 hover:text-white transition-colors font-light text-sm"
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

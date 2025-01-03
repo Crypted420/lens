@@ -1,24 +1,25 @@
+/* eslint-disable react/prop-types */
 import { Menu, X } from "lucide-react";
-import { Instagram, Twitter, Mail, Github } from "lucide-react";
-
+import { Instagram, Twitter, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 const Header2 = ({ setIsMenuOpen, isMenuOpen }) => {
   return (
     <header className="fixed bg-white top-0 left-0 w-full z-50">
       <div className="relative flex justify-between items-center p-4 md:p-10">
         <div className="flex items-center space-x-12">
           <h1 className="text-lg md:text-2xl text-black font-light tracking-wider">
-            LENS·CRAFT
+            DREY·MIDE
           </h1>
 
           <nav className="hidden md:flex items-center space-x-8">
-            {["Work", "About", "Services", "Contact"].map((item) => (
-              <a
+            {["Mining", "Indutrial", "Potraits", "Contact"].map((item) => (
+              <Link
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                to={`/gallery${item.toLowerCase()}`}
                 className="text-black/90 hover:text-black transition-colors font-light text-sm"
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

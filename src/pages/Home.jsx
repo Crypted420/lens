@@ -51,7 +51,7 @@ const Home = () => {
         const updatedProjects = await Promise.all(
           projects.map(async (project) => {
             const response = await fetch(
-              `https://api.pexels.com/v1/search?query=${
+              `https://api.pexels.com/v1/search?orientation=landscape&query=${
                 project.query
               }&per_page=1&page=${Math.floor(Math.random() * 100) + 1}`,
               {
